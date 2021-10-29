@@ -12,6 +12,5 @@ private const val client_id = "ahuoi1tl0qmqbyi8jo8nitbmuaad7w"
 interface TwitchStreamAPI {
     @Headers("Accept:$accept", "Client-ID:$client_id")
     @GET("kraken/games/top")
-    fun getTwitchStream(
-    ): Single<TwitchResponseMain>
+    fun getTwitchStream(): Single<TwitchResponseMain>
 }
