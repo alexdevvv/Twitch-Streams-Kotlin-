@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    viewBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.example.twitchstreamskotlin"
         minSdk 21
@@ -37,6 +41,9 @@ ext {
     picasso = "2.5.2"
     retrofit = "2.9.0"
     converter_gson = "2.4.0"
+    vbPropertyDelegate = '1.5.0-beta01'
+    lifecycle = "2.4.0-rc01"
+    koin = "3.1.2"
 }
 dependencies {
 
@@ -62,4 +69,18 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid"
     implementation "io.reactivex.rxjava2:rxjava:$rxjava"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+
+    //ViewBinding
+    implementation "com.github.kirich1409:viewbindingpropertydelegate:$vbPropertyDelegate"
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle")
+
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle")
+
+    //Koin
+    implementation "io.insert-koin:koin-core:$koin"
+    implementation "io.insert-koin:koin-android:$koin"
+    implementation "io.insert-koin:koin-android-compat:$koin"
 }

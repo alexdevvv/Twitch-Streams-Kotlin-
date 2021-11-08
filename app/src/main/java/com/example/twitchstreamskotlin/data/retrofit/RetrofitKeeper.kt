@@ -16,5 +16,4 @@ class RetrofitKeeper private constructor(){
             return retrofit
         }
     }
-
 }

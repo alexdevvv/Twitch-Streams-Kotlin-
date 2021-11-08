@@ -1,5 +1,6 @@
 package com.example.twitchstreamskotlin.data.retrofit
 
+import com.example.twitchstreamskotlin.domain.repository.DataRepository
 import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.GET
