@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.twitchstreamskotlin.data.retrofit.GameDataModel
 import com.example.twitchstreamskotlin.domain.GetFromServerUseCase
+import com.example.twitchstreamskotlin.model.GameData
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -12,13 +13,13 @@ import io.reactivex.schedulers.Schedulers
 
 
 class MainActivityVM(val useCaseGetFromServer: GetFromServerUseCase) : ViewModel() {
-    private var liveData: MutableLiveData<List<GameDataModel>> = MutableLiveData()
+    private var liveDataModel: MutableLiveData<List<GameData>> = MutableLiveData()
 
     init {
         getDataFromServer()
     }
 
-    fun liveData() = liveData
+    fun liveData() = liveDataModel
 
     private fun getDataFromServer() {
         useCaseGetFromServer.getGames()
@@ -27,14 +28,14 @@ class MainActivityVM(val useCaseGetFromServer: GetFromServerUseCase) : ViewModel
             .subscribe(twitchResponseObserver())
     }
 
-    private fun twitchResponseObserver(): SingleObserver<List<GameDataModel>> {
-        return object : SingleObserver<List<GameDataModel>> {
+    private fun twitchResponseObserver(): SingleObserver<List<GameData>> {
+        return object : SingleObserver<List<GameData>> {
             override fun onSubscribe(d: Disposable) {
                 Log.i("XXX", "подписан")
             }
 
-            override fun onSuccess(t: List<GameDataModel>) {
-                liveData.postValue(t)
+            override fun onSuccess(t: List<GameData>) {
+                liveDataModel.postValue(t)
             }
 
             override fun onError(e: Throwable) {
@@ -42,6 +43,5 @@ class MainActivityVM(val useCaseGetFromServer: GetFromServerUseCase) : ViewModel
             }
         }
     }
-
 
 }

@@ -1,15 +1,14 @@
 package com.example.twitchstreamskotlin.domain
 
-import com.example.twitchstreamskotlin.data.DataRepositoryImpl
 import com.example.twitchstreamskotlin.data.retrofit.GameDataModel
 import com.example.twitchstreamskotlin.domain.repository.DataRepository
+import com.example.twitchstreamskotlin.model.GameData
 import io.reactivex.Single
-import java.time.format.SignStyle
 
 
 class GetFromServerUseCase(val dataRepository: DataRepository) {
 
-    fun getGames(): Single<List<GameDataModel>> {
+    fun getGames(): Single<List<GameData>> {
         return dataRepository.getData()
     }
 
