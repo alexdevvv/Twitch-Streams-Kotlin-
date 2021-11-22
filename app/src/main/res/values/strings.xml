@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Twitch Streams (Kotlin)</string>
+    <string name="back_button">back</string>
+    <string name="feedback_button">feedback</string>
 </resources>

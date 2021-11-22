@@ -27,7 +27,7 @@ class Box {
 
 class Game {
     var name: String? = null
-    var id = 0
+    var _id = 0
     var giantbombId = 0
     var box: Box? = null
     var logo: Logo? = null
@@ -39,7 +39,7 @@ class GameDataModel(val id: Int, val name: String, val viewers: Int, val channel
 
     companion object {
         fun getGameDataModelFromTop(top: Top): GameDataModel {
-            val id: Int = top.game!!.id
+            val id: Int = top.game!!._id
             val name: String = top.game!!.name!!
             val viewers: Int = top.viewers
             val channels: Int = top.channels

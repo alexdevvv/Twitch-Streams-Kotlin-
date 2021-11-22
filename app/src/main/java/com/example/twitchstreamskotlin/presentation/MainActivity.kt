@@ -11,7 +11,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val twitchGamesAdapter = TwitchGamesAdapter()
+    private val twitchGamesAdapter = TwitchGamesAdapter(this)
     private val viewModel: MainActivityVM by viewModel()
     private val binding: ActivityMainBinding by viewBinding()
 
