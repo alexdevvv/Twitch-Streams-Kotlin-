@@ -45,6 +45,7 @@ ext {
     vbPropertyDelegate = '1.5.0-beta01'
     lifecycle = "2.4.0-rc01"
     koin = "3.1.2"
+    paging_version = "2.1.2"
 }
 dependencies {
 
@@ -87,4 +88,9 @@ dependencies {
     implementation "io.insert-koin:koin-core:$koin"
     implementation "io.insert-koin:koin-android:$koin"
     implementation "io.insert-koin:koin-android-compat:$koin"
+
+    //Pagination
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+    testImplementation "androidx.paging:paging-common-ktx:$paging_version"
+    implementation "androidx.paging:paging-rxjava2-ktx:$paging_version"
 }

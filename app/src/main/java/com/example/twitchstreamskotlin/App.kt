@@ -1,10 +1,7 @@
 package com.example.twitchstreamskotlin
 
 import android.app.Application
-import com.example.twitchstreamskotlin.di.retrofitModule
-import com.example.twitchstreamskotlin.di.roomModule
-import com.example.twitchstreamskotlin.di.useCasesModule
-import com.example.twitchstreamskotlin.di.viewModelModule
+import com.example.twitchstreamskotlin.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -13,7 +10,7 @@ class App: Application() {
         super.onCreate()
         startKoin {
             androidContext(this@App)
-            modules(listOf(retrofitModule, viewModelModule, useCasesModule, roomModule))
+            modules(listOf(retrofitModule, viewModelModule, useCasesModule, roomModule, factoryModule))
         }
     }
 }

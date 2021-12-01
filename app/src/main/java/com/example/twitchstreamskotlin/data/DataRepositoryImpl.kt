@@ -19,6 +19,10 @@ class DataRepositoryImpl(val api: TwitchStreamAPI, val dao: GameDataDao) : DataR
         }
     }
 
+    override fun fetchDataLimit(limit: Int, offset: Int): Single<List<GameData>> {
+        return api.getTwitchStreamLimit(limit, offset).map { it.top!!.map { GameData(GameDataModel.getGameDataModelFromTop(it)) } }
+    }
+
     override fun getData(): Single<List<GameData>> {
         return dao.getAll().map { it.map { gameDataEntity -> GameData(gameDataEntity) } }
     }
