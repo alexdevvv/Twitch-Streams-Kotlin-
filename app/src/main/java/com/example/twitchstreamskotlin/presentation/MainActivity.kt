@@ -7,7 +7,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.twitchstreamskotlin.R
 import com.example.twitchstreamskotlin.databinding.ActivityMainBinding
 import com.example.twitchstreamskotlin.presentation.recycler_view.PagedGamesAdapter
-import com.example.twitchstreamskotlin.presentation.recycler_view.TwitchGamesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

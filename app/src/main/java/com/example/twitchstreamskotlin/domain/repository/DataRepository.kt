@@ -14,4 +14,6 @@ interface DataRepository {
     fun getData(): Single<List<GameData>>
 
     fun saveGames(listData: List<GameData>): Completable
+
+    fun getDataLimited(limit: Int, offset: Int): Single<List<GameData>>
 }

@@ -15,4 +15,9 @@ class GetFromDBUseCase(private val dataRepository: DataRepository) {
        return dataRepository.saveGames(listData)
     }
 
+    fun getGamesLimited(limit: Int, offset: Int): Single<List<GameData>> {
+        return dataRepository.getDataLimited(limit, offset)
+    }
+
+
 }

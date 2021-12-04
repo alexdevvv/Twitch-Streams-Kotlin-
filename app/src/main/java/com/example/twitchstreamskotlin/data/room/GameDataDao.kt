@@ -16,5 +16,8 @@ interface GameDataDao {
     @Insert(onConflict = REPLACE)
     fun insert(gameDataTablesList: List<GameDataEntity>): Completable
 
+    @Query("SELECT * FROM gamedataentity limit :limit offset :offset")
+    fun getAllLimited(limit: Int, offset: Int): Single<List<GameDataEntity>>
+
 
 }

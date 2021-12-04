@@ -29,8 +29,11 @@ class DataRepositoryImpl(val api: TwitchStreamAPI, val dao: GameDataDao) : DataR
 
     override fun saveGames(listData: List<GameData>): Completable {
         val list: List<GameDataEntity> = listData.map { GameDataEntity(it) }
-        Log.e("saveDataDbObserver", "SaveGames from DataRepositoryImpl ${list.size}")
         return dao.insert(list)
+    }
+
+    override fun getDataLimited(limit: Int, offset: Int): Single<List<GameData>> {
+        return dao.getAllLimited(limit, offset).map { it.map { gameDataEntity -> GameData(gameDataEntity) } }
     }
 
 
